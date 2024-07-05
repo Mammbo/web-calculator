@@ -4,19 +4,75 @@ html, body{
     width: 100%;
   }
 
-
   body {
     margin: 0;
     min-height: 100vh;
     background-color: #212529;
-  }
-
-  #container {
-    width: 400px;
-    height: 400px;
-  }
-
-  #calc {
     display: flex;
+    justify-content: center;
+    align-items: center;
   }
- 
+
+#container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: black;
+   border: 30px solid;
+   border-radius: 20px;
+
+}
+
+#calc {
+    width: 420px;
+    height: 600px;
+}
+
+#display { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10px;
+    height: 100px;
+    background-color: white;
+    font-size: 48px;
+    margin-bottom: 4px ;
+    border-radius: 10px;  
+
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 48px;
+}
+
+.zero {
+    width: 208px;
+    height: 100px;
+}
+
+
+.btn.func {
+    background-color: #bcb8b1;
+}
+
+.btn.operator {
+    background-color: #fca311;
+    color: white;
+}
+
+.btn.num {
+    background-color: #495057;
+    color: white;
+}
+.btn.decimal {
+    background-color: #495057;
+    color: white;
+}
+.btn.zero {
+    background-color: #495057;
+    color: white;
+}
