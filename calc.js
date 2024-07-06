@@ -35,3 +35,35 @@ function operation(displayNum1, displayOperator, displayNum2) {
     } 
     return answer
 }
+
+
+
+
+//UI Elements 
+//Numbers
+const num7 = document.getElementById("7")
+const num8 = document.getElementById("8")
+const num9 = document.getElementById("9")
+const num4 = document.getElementById("4")
+const num5 = document.getElementById("5")
+const num6 = document.getElementById("6")
+const num1 = document.getElementById("1")
+const num2 = document.getElementById("2")
+const num3 = document.getElementById("3")
+const num0 = document.getElementById("0")
+const decimal = document.getElementById(".")
+
+
+//operators 
+const divide = document.getElementById("divison")
+const multiply = document.getElementById("multiplication")
+const subtract = document.getElementById("subtraction")
+const add = document.getElementById("addition")
+
+//functions 
+
+const clear = document.getElementById("clear")
+const posNeg = document.getElementById("negPos")
+const percent = doucment.getElementById("percentage")
+
+
