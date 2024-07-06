@@ -27,7 +27,7 @@ html, body{
 }
 
 #calc {
-    width: 420px;
+    width: 430px;
     height: 600px;
 }
 
@@ -50,32 +50,58 @@ button {
     height: 100px;
     border-radius: 50px;
     font-size: 48px;
+    cursor: pointer;
+    margin: 2px;
 }
 
-.zero {
-    width: 208px;
-    height: 100px;
-}
 
 
 .btn.func {
     background-color: #bcb8b1;
+    border: 0px;
 }
 
 .btn.operator {
     background-color: #fca311;
     color: white;
+    border: 0px;
 }
 
 .btn.num {
     background-color: #495057;
     color: white;
+    border: 0px;
 }
 .btn.decimal {
     background-color: #495057;
     color: white;
+    border: 0px;
 }
 .btn.zero {
+    width: 208px;
+    height: 100px;
     background-color: #495057;
     color: white;
+    border: 0px;
+}
+
+
+.btn.func:hover { 
+    background-color: #8a817c;
+}
+
+.btn.num:hover{
+    background-color: #343a40;
+}
+
+.btn.decimal:hover { 
+    background-color: #343a40;
+}
+
+.btn.btn.zero:hover {
+    background-color: #343a40;
+}
+
+.btn.operator:hover { 
+    background-color: #C68112;
 }
