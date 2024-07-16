@@ -34,7 +34,7 @@ const posNeg = document.getElementById("negPos")
 const percent = doucment.getElementById("percentage")
 
 //event listners 
-
+num7.onclick = 
 
 //functionality 
 function inputNumber(number) {
@@ -43,9 +43,17 @@ function inputNumber(number) {
 }
 
 function setOperator(operator) {
-
+    if (firstOperand === null) {
+        firstOperand = parseFloat(currentInput);
+    } else if (currentOperator) {
+        secondOperand = parseFloat(currentInput);
+        firstOperand = operate(currentOperator, firstOperand, secondOperand)
+        display.textContent(firstOperand);
+    }
+    currentInput = '';
+    currentOperator = operator;
 }
-
+/*
 function turnPosNeg() {
     //parse current input to see if its a flot
     //if so add neg to the currentInput that matches the operand
@@ -64,9 +72,16 @@ function decimal() {
     //if clicked again it will do nothing on the currentInput because decimal is present
     //if clicked on new num it will add the decimal 
 }
-
+*/
 function calculate() {
-
+    if (currentOperator && currentInput !== '') {
+        secondOperand = parseFloat(currentInput);
+        const result = operate(currentOperator, firstOperand, secondOperand);
+        display.value = result;
+        firstOperand = result;
+        currentInput = '';
+        currentOperator = null;
+    }
 }
 
 
@@ -87,9 +102,11 @@ function operation(operator, num1, num2) {
 
 
 function clearDisplay() {
-    // set all global vars to default 
-    //display.text content is none 
-
+    currentInput = '';
+    firstOperand = null;
+    secondOperand = null;
+    currentOperator = null;
+    display.textContent = '0';
 }
 
 
