@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #212529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+  }
+
+#container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: black;
+   border: 50px solid;
+   border-radius: 20px;
+}
+
+#calc {
+    width: 430px;
+    height: 600px;
+}
+
+#display { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10px;
+    height: 100px;
+    background-color: white;
+    font-size: 48px;
+    margin-bottom: 4px ;
+    border-radius: 10px;  
+
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 48px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+
+
+.btn.func {
+    background-color: #bcb8b1;
+    border: 0px;
+}
+
+.btn.operator {
+    background-color: #fca311;
+    color: white;
+    border: 0px;
+}
+
+#equals {
+    background-color: #fca311;
+    color: white;
+    border: 0px;
+}
+
+.btn.num {
+    background-color: #495057;
+    color: white;
+    border: 0px;
+}
+.btn.decimal {
+    background-color: #495057;
+    color: white;
+    border: 0px;
+}
+.btn.zero {
+    width: 208px;
+    height: 100px;
+    background-color: #495057;
+    color: white;
+    border: 0px;
+}
+
+
+.btn.func:hover { 
+    background-color: #8a817c;
+}
+
+.btn.num:hover{
+    background-color: #343a40;
+}
+
+.btn.decimal:hover { 
+    background-color: #343a40;
+}
+
+.btn.btn.zero:hover {
+    background-color: #343a40;
+}
+
+.btn.operator:hover { 
+    background-color: #C68112;
+}
+
+#equals:hover { 
+    background-color: #C68112;
+}
