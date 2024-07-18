@@ -1,111 +1,111 @@
-// gloabl vars for displaying
-let currentInput = '';
-let firstOperand = null;
-let secondOperand = null;
-let currentOperator = null; 
+let operator = '';
+let previousValue = '';
+let currentValue = '';
 
-//UI Elements 
-//display 
-const display = document.getElementById("display")
-//Numbers
-const numberButtons = document.querySelectorAll('.num')
+document.addEventListener("DOMContentLoaded", function(){
+    // store all components on HTML in our JS.
+    let numbers = document.querySelectorAll(".num")
+    let operators = document.querySelectorAll(".operator")
 
-//operators 
-const operationButtons = document.querySelectorAll('.operator')
+    let clear = document.getElementById("clear")
+    let percent = document.getElementById("percentage")
+    let posNeg = document.getElementById("negPos")
+    let equal = document.getElementById("equals")
+    let decimal = document.getElementById(".")
 
-//functions 
+    let display = document.getElementById("display")
 
-const clear = document.getElementById("clear")
-const posNeg = document.getElementById("negPos")
-const percent = document.getElementById("percentage")
+    numbers.forEach((number) => number.addEventListener("click", function(e){
+        handleNumber(e.target.textContent)
+        display.textContent = currentValue;
+    }))
 
-//event listners  and updataing display + current val 
-numberButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const number = button.getAttribute('data-number')
+    operators.forEach((operator) => operator.addEventListener("click", function(e){
+        handleOperator(e.target.textContent)
+    }))
 
-        //update current input 
-        currentInput += number;
-        display.textContent = `${currentInput}`
-    });
-});
+    clear.addEventListener("click", function(){
+        previousValue = '';
+        currentValue = '';
+        operator = '';
+        display.textContent = 0;
+    })
 
-operationButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const currentOperator = button.getAttribute('data-operator')
+    equal.addEventListener("click", function(){
+        if (currentValue != '' && previousValue != '' && operator != ''){
+            calculate()
+            if (previousValue.length <= 13){
+                display.textContent = previousValue;
+                operator = '';
+            } else {
+                display.textContent = previousValue.slice(0,13) + "...";
+                operator = '';
+            }
+        }
+    })
 
-        setOperator(currentOperator)
-    });
-});
+    decimal.addEventListener("click", function(){
+        if (!currentValue.includes('.')){
+            currentValue = currentValue + '.';
+            display.textContent = currentValue
+        }
+    })
+    // finish the percent function and the pos/neg 
+    percent.addEventListener("click", function(){
+        currentValue = parseFloat(currentValue)
+        currentValue = currentValue * 0.01
+        currentValue = currentValue.toString();
+        display.textContent = currentValue.slice(0,13);
+    })
+    posNeg.addEventListener("click", function(){
+        if (!currentValue.includes('-')) {
+            currentValue = '-' + currentValue;
+            display.textContent = currentValue
+        } else if (currentValue.includes('-')){
+            currentValue = currentValue.replace('-', '')
+            display.textContent = currentValue
+        }
+    })
+})
 
-clear.addEventListener('click', () => clearDisplay())
 
 
-function setOperator(operator) {
-    if (firstOperand === null) {
-        firstOperand = parseFloat(currentInput);
-    } else if (currentOperator) {
-        secondOperand = parseFloat(currentInput);
-        firstOperand = operation(currentOperator, firstOperand, secondOperand)
-        display.textContent = `${firstOperand}`
-    }
-    currentInput = '';
-    currentOperator = operator;
-}
-/*
-function turnPosNeg() {
-    //parse current input to see if its a flot
-    //if so add neg to the currentInput that matches the operand
-    //if neg is present when clicked, take the neg off 
-}
-
-function percent() {
-    //parse current input to see if its a float 
-    //if so add a decimal by 2 spaces to the currentInput to change the display and the var that matches that input 
-    //if clicked again, add zeros and move two spaces to the right
-}
-
-function decimal() {
-    //parse current input to see if its a float 
-    //if so add a decimal 
-    //if clicked again it will do nothing on the currentInput because decimal is present
-    //if clicked on new num it will add the decimal 
-}
-*/
-function calculate() {
-    if (currentOperator && currentInput !== '') {
-        secondOperand = parseFloat(currentInput);
-        const result = operate(currentOperator, firstOperand, secondOperand);
-        display.value = result;
-        firstOperand = result;
-        currentInput = '';
-        currentOperator = null;
+function handleNumber(num) {
+    if (currentValue.length <= 13) {
+        currentValue += num;
     }
 }
 
-
-function operation(operator, num1, num2) {
-    switch (operator) {
-        case '+':
-            return num1 + num2 
-        case '-':
-            return num1 - num2
-        case '*':
-            return num1 * num2
-        case '/':
-            return num1 / num2
-        default:
-            return null;
-    }
+function handleOperator(op) {
+    operator = op;
+    previousValue = currentValue;
+    currentValue = '';
 }
 
+function calculate(){
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
 
-function clearDisplay() {
-    currentInput = '';
-    firstOperand = null;
-    secondOperand = null;
-    currentOperator = null;
-    display.textContent = '0';
+
+        if (operator ==="+") {
+            previousValue += currentValue
+        } 
+        else if (operator === "-") {
+            previousValue -= currentValue
+        } 
+        else if (operator === "×") {
+            previousValue *= currentValue
+        }
+        else if (operator === "÷") {
+            previousValue /= currentValue
+
+        } 
+
+    previousValue = roundNumber(previousValue)
+    currentValue = previousValue.toString();
+    previousValue = previousValue.toString();
 }
 
-
+function roundNumber(num){
+    return  parseFloat(num.toFixed(2))
+}

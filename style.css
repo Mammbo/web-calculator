@@ -23,7 +23,6 @@ html, body{
    background-color: black;
    border: 50px solid;
    border-radius: 20px;
-
 }
 
 #calc {
@@ -67,6 +66,12 @@ button {
     border: 0px;
 }
 
+#equals {
+    background-color: #fca311;
+    color: white;
+    border: 0px;
+}
+
 .btn.num {
     background-color: #495057;
     color: white;
@@ -103,5 +108,9 @@ button {
 }
 
 .btn.operator:hover { 
+    background-color: #C68112;
+}
+
+#equals:hover { 
     background-color: #C68112;
 }

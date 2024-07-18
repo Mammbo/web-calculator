@@ -9,9 +9,9 @@ use cases/ project requriements to be considered functioning:
 ex: 7 + 3
 
     I'd create 3 variables ( one for each of these parts of a calculator operation.)
+s 
+    use these variableto update the display on screen. 
 
-    use these variables to update the display on screen. 
-    
 3. function called operation that takes the operator and 2 numbers and then calls one of the above functions on the numbers.
 
 4. create a basic html calculator with buttons for each digit each of the above functions and the equals sign. and add a clear button.
